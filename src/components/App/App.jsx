@@ -15,7 +15,7 @@ let [gallery, setGallery] = useState([]);
 // GET Axios
 // on load get gallery list
 useEffect(() => {
-  getGalleryList;
+  getGalleryList();
 }, []);
 
 const getGalleryList = () => {
@@ -41,7 +41,6 @@ const getGalleryList = () => {
         <GalleryList
           gallery={gallery}
           />
-        <img src="images/goat_small.jpg"/>
       </div>
     );
 }

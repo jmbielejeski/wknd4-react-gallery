@@ -1,16 +1,20 @@
-import GalleryItem from '../GalleryItem/GalleryItem'
+// import GalleryItem from '../GalleryItem/GalleryItem'
 
 function GalleryList({
     gallery,
   })
 {
   // return JSX
+  console.log('gallery is', gallery);
   return (
     <div>
         {gallery.map((item) => (
-          <GalleryItem
-            item={item}
-          />
+          // <GalleryItem
+          // key={item.id}
+          //   item=
+          
+          <div>{item.path} </div>
+          
         ))}
     </div>
   );

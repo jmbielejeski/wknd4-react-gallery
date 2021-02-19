@@ -1,9 +1,10 @@
-function GalleryItem({item}) {
-  return (
-    <div>
-      {item}
-    </div>
-  );
-}
+// function GalleryItem({item}) {
+//   console.log('item is', item);
+//   return (
+//     <div>
+//       {item}
+//     </div>
+//   );
+// }
 
-export default GalleryItem;
+// export default GalleryItem;
