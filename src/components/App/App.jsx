@@ -40,7 +40,6 @@ const getGalleryList = () => {
         <p>Gallery goes here</p>
         <GalleryList
           gallery={gallery}
-          galleryItem={setGalleryItem}
           />
         <img src="images/goat_small.jpg"/>
       </div>

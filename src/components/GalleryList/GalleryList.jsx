@@ -1,12 +1,17 @@
+import GalleryItem from '../GalleryItem/GalleryItem'
+
 function GalleryList({
     gallery,
-    galleryItem,    
   })
 {
   // return JSX
   return (
     <div>
-        {gallery}
+        {gallery.map((item) => (
+          <GalleryItem
+            item={item}
+          />
+        ))}
     </div>
   );
 }
