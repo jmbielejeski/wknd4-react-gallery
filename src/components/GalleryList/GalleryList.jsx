@@ -1,4 +1,4 @@
-// import GalleryItem from '../GalleryItem/GalleryItem'
+import GalleryItem from '../GalleryItem/GalleryItem'
 
 function GalleryList({
     gallery,
@@ -9,12 +9,10 @@ function GalleryList({
   return (
     <div>
         {gallery.map((item) => (
-          // <GalleryItem
-          // key={item.id}
-          //   item=
-          
-          <div>{item.path} </div>
-          
+          <GalleryItem
+          key={item.id}
+          item={item}          
+        /> 
         ))}
     </div>
   );
