@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useToggle } from 'react';
 import axios from 'axios';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList'
@@ -8,9 +8,9 @@ import GalleryList from '../GalleryList/GalleryList'
 function App() {
 
 // FORKS
-let [galleryItem, setGalleryItem] = useState('');
 // gallery fork set to an empty array
 let [gallery, setGallery] = useState([]);
+let [displayedItem, setDisplayedItem] = useState('true');
 
 // GET Axios
 // on load get gallery list
@@ -35,7 +35,7 @@ const getGalleryList = () => {
 // PUT route for likes
 const likeCounter = (event) => {
   // need to target like button
-  const itemId = Number(event.target.dataset.id);
+  const itemId = event.target.dataset.id;
   //const likesCount = event.target.dataset.liked;
   console.log('itemId is', itemId) //'likeCount is', likesCount);
   axios.put(`/gallery/like/${itemId}`)
@@ -48,6 +48,16 @@ const likeCounter = (event) => {
   })
 }
 
+let toggle = (event) => {
+  console.log('item being toggled', event.target.dataset.id)
+  
+  if (displayedItem === 'true') {
+    setDisplayedItem('false');
+  } else {
+    setDisplayedItem('true');
+  }
+}
+
     return (
       <div className="App">
         <header className="App-header">
@@ -57,7 +67,11 @@ const likeCounter = (event) => {
         <GalleryList
           gallery={gallery}
           likeCounter={likeCounter}
+          toggle={toggle}
+          displayedItem={displayedItem}
           />
+
+
       </div>
     );
 }

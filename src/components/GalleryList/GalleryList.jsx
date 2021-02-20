@@ -3,6 +3,8 @@ import GalleryItem from '../GalleryItem/GalleryItem'
 function GalleryList({
     gallery,
     likeCounter,
+    toggle,
+    displayedItem
   })
 {
   // return JSX
@@ -13,7 +15,10 @@ function GalleryList({
           <GalleryItem
           key={item.id}
           item={item}
-          likeCounter={likeCounter}          
+          likeCounter={likeCounter}
+          toggle={toggle}
+          displayedItem={displayedItem}
+                  
         /> 
         ))}
     </div>
