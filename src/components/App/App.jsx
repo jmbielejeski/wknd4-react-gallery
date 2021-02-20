@@ -10,7 +10,7 @@ function App() {
 // FORKS
 // gallery fork set to an empty array
 let [gallery, setGallery] = useState([]);
-let [displayedItem, setDisplayedItem] = useState('true');
+
 
 // GET Axios
 // on load get gallery list
@@ -48,15 +48,6 @@ const likeCounter = (event) => {
   })
 }
 
-let toggle = (event) => {
-  console.log('item being toggled', event.target.dataset.id)
-  
-  if (displayedItem === 'true') {
-    setDisplayedItem('false');
-  } else {
-    setDisplayedItem('true');
-  }
-}
 
     return (
       <div className="App">
@@ -67,8 +58,6 @@ let toggle = (event) => {
         <GalleryList
           gallery={gallery}
           likeCounter={likeCounter}
-          toggle={toggle}
-          displayedItem={displayedItem}
           />
 
 

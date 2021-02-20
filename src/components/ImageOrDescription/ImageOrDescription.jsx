@@ -1,21 +1,29 @@
+import { useState, useEffect } from 'react';
+
+
 function ImageOrDescription ({
-  toggle,
-  displayedItem,
   itemPath,
   itemDescription,
-  itemId
+  
 
 }) {
+
+  let [displayedItem, setDisplayedItem] = useState(false);
+
+  let changeDisplayedItem = () => {
+    setDisplayedItem(!displayedItem);
+  }
+
   // console.log('itemPath', itemPath);
   // console.log('itemDescription', itemDescription);
   // console.log('displayedItem', displayedItem)
-  if (displayedItem === 'true') {
+  if (displayedItem === false) {
     return (
-      <img src={itemPath} onClick={toggle} data-id={itemId}/>
+      <img src={itemPath} onClick={changeDisplayedItem} />
     )
   } else {
     return (
-      <div onClick={toggle} data-id={itemId}>{itemDescription} </div>
+      <div onClick={changeDisplayedItem} >{itemDescription} </div>
     )
   }
 }
