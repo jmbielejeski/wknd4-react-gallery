@@ -6,18 +6,20 @@ function GalleryItem({item, likeCounter}) {
   if (item.likes === 0) {
   return (
     <>
-    <img src={item.path} />
-    <button data-id={item.id} onClick={likeCounter}>love it!</button>
-    <span>No people love this :(</span>
+    <div className="imageHolder">
+      <img src={item.path} />
+      <button className="likeButton" data-id={item.id} onClick={likeCounter}>love it!</button>
+      <span className="likeMessage"> No people love this :( </span>
+    </div>
     </>
   );
 } else { 
     return (
-      <>
-      <img src={item.path} />
-      <button data-id={item.id} onClick={likeCounter}>love it!</button>
-      <span data-liked={item.likes}>{item.likes} people love this!</span>
-      </>
+      <div className="imageHolder">
+        <img src={item.path} />
+        <button className="likeButton" data-id={item.id} onClick={likeCounter}>love it!</button>
+        <span className="likeMessage" data-liked={item.likes}>{item.likes} people love this!</span>
+      </div>
     );
   }
 
