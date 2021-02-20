@@ -2,6 +2,7 @@ import GalleryItem from '../GalleryItem/GalleryItem'
 
 function GalleryList({
     gallery,
+    likeCounter,
   })
 {
   // return JSX
@@ -11,7 +12,8 @@ function GalleryList({
         {gallery.map((item) => (
           <GalleryItem
           key={item.id}
-          item={item}          
+          item={item}
+          likeCounter={likeCounter}          
         /> 
         ))}
     </div>
