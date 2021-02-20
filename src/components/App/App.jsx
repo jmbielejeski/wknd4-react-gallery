@@ -32,6 +32,22 @@ const getGalleryList = () => {
   })
 }
 
+// PUT route for likes
+const likeCounter = (event) => {
+  // need to target like button
+  const itemId = Number(event.target.dataset.id);
+  //const likesCount = event.target.dataset.liked;
+  console.log('itemId is', itemId) //'likeCount is', likesCount);
+  axios.put(`/gallery/like/${itemId}`)
+  .then((response) => {
+    console.log('item liked!', response);
+    getGalleryList();
+  })
+  .catch((error) => {
+    console.log('error liking image', error);
+  })
+}
+
     return (
       <div className="App">
         <header className="App-header">
@@ -40,6 +56,7 @@ const getGalleryList = () => {
         <p>Gallery goes here</p>
         <GalleryList
           gallery={gallery}
+          likeCounter={likeCounter}
           />
       </div>
     );
