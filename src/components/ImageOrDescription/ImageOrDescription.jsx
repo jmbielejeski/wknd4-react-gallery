@@ -10,13 +10,12 @@ function ImageOrDescription ({
 
   let [displayedItem, setDisplayedItem] = useState(false);
 
+  // change state of displayed item
   let changeDisplayedItem = () => {
     setDisplayedItem(!displayedItem);
   }
 
-  // console.log('itemPath', itemPath);
-  // console.log('itemDescription', itemDescription);
-  // console.log('displayedItem', displayedItem)
+  // check state of displayed item
   if (displayedItem === false) {
     return (
       <img src={itemPath} onClick={changeDisplayedItem} />

@@ -7,7 +7,7 @@ function GalleryList({
   })
 {
   // return JSX
-  console.log('gallery is', gallery);
+  // console.log('gallery is', gallery);
 
   return (
     <div>

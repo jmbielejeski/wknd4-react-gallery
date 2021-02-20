@@ -11,8 +11,8 @@ function GalleryItem({
 
   let itemPath = item.path;
   let itemDescription = item.description;
-  console.log('itemPath', itemPath);
-  console.log('itemDescription', itemDescription);
+  // console.log('itemPath', itemPath);
+  // console.log('itemDescription', itemDescription);
 
 
   if (item.likes === 0) {
