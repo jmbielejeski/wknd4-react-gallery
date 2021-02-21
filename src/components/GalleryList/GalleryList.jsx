@@ -3,7 +3,7 @@ import GalleryItem from '../GalleryItem/GalleryItem'
 function GalleryList({
     gallery,
     likeCounter,
-    
+    handleDelete
   })
 {
   // return JSX
@@ -16,6 +16,7 @@ function GalleryList({
           key={item.id}
           item={item}
           likeCounter={likeCounter}
+          handleDelete={handleDelete}
                   
         /> 
         ))}
