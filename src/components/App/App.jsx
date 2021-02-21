@@ -5,6 +5,7 @@ import GalleryList from '../GalleryList/GalleryList'
 
 
 
+
 function App() {
 
 // FORKS
@@ -23,7 +24,7 @@ const getGalleryList = () => {
 
   axios.get('/gallery')
   .then((response) => {
-    console.log('in axios Get response');
+    console.log('in axios Get response', response.data);
     setGallery(response.data);
   })
   .catch((error) => {
@@ -54,7 +55,7 @@ const likeCounter = (event) => {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <p>Gallery goes here</p>
+        
         <GalleryList
           gallery={gallery}
           likeCounter={likeCounter}
