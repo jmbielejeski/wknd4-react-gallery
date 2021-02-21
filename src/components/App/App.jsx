@@ -36,10 +36,10 @@ const getGalleryList = () => {
 // PUT route for likes
 const likeCounter = (event) => {
   // need to target like button
-  const itemId = event.target.dataset.id;
+  const galleryItemId = event.target.dataset.id;
   //const likesCount = event.target.dataset.liked;
-  console.log('itemId is', itemId) //'likeCount is', likesCount);
-  axios.put(`/gallery/like/${itemId}`)
+  console.log('itemId is', galleryItemId) //'likeCount is', likesCount);
+  axios.put(`/gallery/like/${galleryItemId}`)
   .then((response) => {
     console.log('item liked!', response);
     getGalleryList();
@@ -49,6 +49,19 @@ const likeCounter = (event) => {
   })
 }
 
+// DELETE route
+const handleDelete = () => {
+  const galleryItemId = event.target.dataset.id;
+
+  axios.delete(`/gallery/${galleryItemId}`)
+    .then((response) => {
+      console.log('item deleted');
+      getGalleryList();
+    })
+    .catch((error) => {
+      console.log('unable to delete item', error)
+    })
+}
 
     return (
       <div className="App">
@@ -59,6 +72,7 @@ const likeCounter = (event) => {
         <GalleryList
           gallery={gallery}
           likeCounter={likeCounter}
+          handleDelete={handleDelete}
           />
 
 

@@ -9,10 +9,10 @@ const pool = require('../modules/pool.js');
 // PUT Route
 router.put('/like/:id', (req, res) => {
     // console.log('req.params is', req.params);
-    const galleryId = req.params.id;
+    const galleryItemId = req.params.id;
     let sqlText = `UPDATE gallery SET likes = likes +1 WHERE id=$1`;
 
-    pool.query(sqlText, [galleryId])
+    pool.query(sqlText, [galleryItemId])
     .then((resDB) => {
       console.log('updated likes')
       res.sendStatus(200)
@@ -38,6 +38,22 @@ router.get('/', (req, res) => {
   })
 
 }); // END GET Route
+
+// DELETE Route
+router.delete('/:id', (req, res) => {
+  
+  const galleryItemId = req.params.id;
+  let sqlText = 'DELETE FROM gallery WHERE id=$1';
+
+  pool.query(sqlText, [galleryItemId])
+  .then((resDB) => {
+    res.sendStatus(200)
+  })
+  .catch((error) => {
+    console.log('error deleting item', error);
+    res.sendStatus(500);  
+  })
+}) // END DELETE Route
 
 
 module.exports = router;

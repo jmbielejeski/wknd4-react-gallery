@@ -4,7 +4,8 @@ import ImageOrDescription from '../ImageOrDescription/ImageOrDescription'
 function GalleryItem({
   item,
   likeCounter,
-  displayedItem
+  displayedItem,
+  handleDelete
   
 }) {
   console.log('item is', item);
@@ -26,6 +27,7 @@ function GalleryItem({
       />
       <button className="likeButton" data-id={item.id} onClick={likeCounter}>love it!</button>
       <span className="likeMessage"> No people love this :( </span>
+      <button className="deleteButton" data-id={item.id} onClick={handleDelete}>Delete</button>
     </div>
     </>
   );
@@ -39,6 +41,8 @@ function GalleryItem({
         />
         <button className="likeButton" data-id={item.id} onClick={likeCounter}>love it!</button>
         <span className="likeMessage" data-liked={item.likes}>{item.likes} people love this!</span>
+        <button className="deleteButton" data-id={item.id} onClick={handleDelete}>Delete</button>
+
       </div>
     );
   }
