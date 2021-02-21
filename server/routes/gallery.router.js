@@ -8,22 +8,28 @@ const pool = require('../modules/pool.js');
 
 // PUT Route
 router.put('/like/:id', (req, res) => {
-    console.log('req.params is', req.params);
+    // console.log('req.params is', req.params);
     const galleryId = req.params.id;
-    for(const galleryItem of galleryItems) {
-        if(galleryItem.id == galleryId) {
-            galleryItem.likes += 1;
-        }
-    }
-    res.sendStatus(200);
+    let sqlText = `UPDATE gallery SET likes = likes +1 WHERE id=$1`;
+
+    pool.query(sqlText, [galleryId])
+    .then((resDB) => {
+      console.log('updated likes')
+      res.sendStatus(200)
+    })
+    .catch((error) => {
+      console.log('unable to update likes', error);
+      res.sendStatus(500);
+    })
+
 }); // END PUT Route
 
 // GET Route
 router.get('/', (req, res) => {
-  const sqlText = `SELECT * FROM gallery`;
+  const sqlText = `SELECT * FROM gallery ORDER BY id ASC`;
   pool.query(sqlText)
   .then((results) => {
-    console.log('rows', results.rows);
+    // console.log('rows', results.rows);
     res.send(results.rows);
   })
   .catch((error) => {
